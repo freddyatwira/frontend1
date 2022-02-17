@@ -1,6 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
+  "proxy": "https://kenhotex.atwira.com",
   "homepage": "https://a4chat.atwira.com",
   "private": true,
   "dependencies": {

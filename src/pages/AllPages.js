@@ -22,7 +22,7 @@ const AllPages = () => {
 // this is the viewpoint of the website
     const getTodos =async() =>{
       try {
-        const response = await axios.get('https://kenhotex.atwira.com/todos/')
+        const response = await axios.get('todos/')
         setTodos(response.data)
         console.log("DATAS:", response.data)
       } catch (error) {
@@ -36,7 +36,7 @@ const AllPages = () => {
     const handleSubmit = async(e) =>{
       e.preventDefault();
       try {
-          await axios.post('https://kenhotex.atwira.com/todos/', {
+          await axios.post('todos/', {
               title, description, completed:false
           })
           getTodos()
@@ -58,7 +58,7 @@ const AllPages = () => {
     try {
       const todo = todos.filter(todo => todo.id === id)[0]
       todo.completed = true
-      await axios.put(`https://kenhotex.atwira.com/todos/${id}`, todo)
+      await axios.put(`todos/${id}`, todo)
       getTodos()
     } catch (error) {
       console.log(`Error: ${error.message}`)
@@ -72,7 +72,7 @@ const AllPages = () => {
       try {
         const todo = todos.filter(todo =>todo.id === id)[0]
         todo.completed = false
-        await axios.put(`https://kenhotex.atwira.com/todos/${id}`, todo)
+        await axios.put(`todos/${id}`, todo)
         getTodos()
       } catch (error) {
         console.log(`Error: ${error.message}`)
@@ -88,7 +88,7 @@ const AllPages = () => {
 // it is referenced at Home.js
     const deleteTodo = async(id) =>{
         try {
-            await axios.delete(`https://kenhotex.atwira.com/todos/${id}/`)
+            await axios.delete(`todos/${id}/`)
             getTodos()
             console.log("DEL:", getTodos())
             
@@ -104,7 +104,7 @@ const AllPages = () => {
 
   const editTodo = async(todo) =>{
     try {
-      await axios.put(`https://kenhotex.atwira.com/todos/${todo.id}/`, todo)
+      await axios.put(`todos/${todo.id}/`, todo)
       getTodos()
     } catch (error) {
       alert(error);
