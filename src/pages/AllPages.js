@@ -20,8 +20,6 @@ const AllPages = () => {
     },[])
   
 // this is the viewpoint of the website
-
-
     const getTodos =async() =>{
       try {
         const response = await axios.get('https://kenhotex.atwira.com/todos/')
